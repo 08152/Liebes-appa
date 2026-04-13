@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Mädchen</title>
+<style>
+body{
+  background:#111;
+  color:white;
+  font-family:Arial;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  flex-direction:column;
+}
+
+.circle-input{
+  width:250px;
+  height:50px;
+  border-radius:50px;
+  border:none;
+  text-align:center;
+  font-size:16px;
+  margin:10px;
+}
+
+button{
+  padding:12px 20px;
+  border-radius:20px;
+  border:none;
+}
+</style>
+</head>
+<body>
+
+<h2>👧 Mädchen</h2>
+
+<input id="name" class="circle-input" placeholder="Name Junge">
+<input id="text" class="circle-input" placeholder="Wie findest du ihn?">
+
+<button onclick="go()">Fertig</button>
+
+<script>
+let nameInput = document.getElementById("name");
+
+nameInput.addEventListener("input", () => {
+  let v = nameInput.value;
+  if (v.length > 1) {
+    nameInput.value = v[0] + "•".repeat(v.length - 1);
+  }
+});
+
+function go(){
+  const name = document.getElementById("name").value[0];
+  const text = document.getElementById("text").value;
+
+  localStorage.setItem("role","girl");
+  localStorage.setItem("name",name);
+  localStorage.setItem("text",text);
+
+  location.href="1.html";
+}
+</script>
+
+</body>
+</html>
